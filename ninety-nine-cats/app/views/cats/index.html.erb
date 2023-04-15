@@ -1,5 +1,5 @@
 <h1>Welcome To The Cats Index Page !</h1>
 
-<% @cats.each do |cat| %>
+<% @cats.sort_by{|cat| cat.id}.each do |cat| %>
     <%= render 'cat', cat: cat, type: :index %>
 <% end %>
