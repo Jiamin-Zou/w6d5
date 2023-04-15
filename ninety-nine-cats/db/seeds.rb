@@ -5,3 +5,30 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+
+require 'faker'
+
+CAT_COLORS = ["Orange", "White", "Brown", "Black", "Black and White"]
+CAT_SEXES = ["M", "F"]
+
+puts 'Destroying tables ...'
+Cat.destroy_all
+
+puts 'Resetting id sequences ...'
+ApplicationRecord.connection.reset_pk_sequence!(:cats)
+
+puts 'Loading cats ...'
+99.times do
+  Cat.create!(
+    name: Faker::Creature::Cat.name,
+    birth_date: Faker::Date.between(from: '2010-01-01', to: '2023-04-14'),
+    color: CAT_COLORS.sample,
+    sex: CAT_SEXES.sample,
+    description: [Faker::Adjective.positive, Faker::Adjective.negative].sample(rand(2..5)).join(", ")
+    # description: Faker::Quote.jack_handey
+  )
+end
+
+puts "Finished loading cats from seed file!"
+

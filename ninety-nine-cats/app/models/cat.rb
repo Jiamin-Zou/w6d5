@@ -17,7 +17,7 @@ require 'action_view/helpers'
 class Cat < ApplicationRecord
   include ActionView::Helpers::DateHelper
 
-    CAT_COLORS = ["Orange", "White", "Brouwn", "Black", "Black and White"]
+    CAT_COLORS = ["Orange", "White", "Brown", "Black", "Black and White"]
     validates :birth_date, :color, :name, :sex, presence: true
     validates :color, inclusion: { in: CAT_COLORS }
     validates :sex, inclusion: { in: %w(M F) }
