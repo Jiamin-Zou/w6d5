@@ -1,3 +1,5 @@
-<h1>All the cats !</h1>
+<h1>Welcome To The Cats Index Page !</h1>
 
-<%  %>
+<% @cats.each do |cat| %>
+    <%= render 'cat', cat: cat, type: :index %>
+<% end %>

@@ -1,5 +1,23 @@
-<table>
+<style>
+table, th, td {
+  border:1px solid black;
+}
+td {
+    text-align: center;
+}
+</style>
+
+<table style="width:60%">
+    <colgroup>
+        <col style="width: 22%" />
+        <col style="width: 15%" />
+        <col style="width: 15%" />
+        <col style="width: 7%" />
+        <col style="width: 18%" />
+        <col style="width: 23%" />
+    </colgroup>
     <tr>
+        
         <th>Name</th>
         <th>Birth Date</th>
         <th>Age</th>
@@ -8,11 +26,20 @@
         <th>Description</th>
     </tr>
     <tr>
-        <th><%= cat.name %></th>
-        <th><%= cat.birth_date %></th>
-        <th><%= cat.age %></th>
-        <th><%= cat.sex %></th>
-        <th><%= cat.color %></th>
-        <th><%= cat.description %></th>
+    <% if type == :index %>
+        <td><a href ="<%= cat_url(cat)%>"><%= cat.name %></a></td>
+    <% else %>
+        <td><%= cat.name %></td>
+    <% end %> 
+        <td><%= cat.birth_date %></td>
+        <td><%= cat.age %></td>
+        <td><%= cat.sex %></td>
+        <td><%= cat.color %></td>
+        <td><%= cat.description %></td>
     </tr>
 </table>
+
+<% if type == :show %>
+    <button onclick="location.href='<%= cats_url%>'">Back To All Cats Index</button>
+<% end %>
+

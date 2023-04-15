@@ -22,7 +22,7 @@ puts 'Loading cats ...'
 99.times do
   Cat.create!(
     name: Faker::Creature::Cat.name,
-    birth_date: Faker::Date.between(from: '2010-01-01', to: '2023-04-14'),
+    birth_date: Faker::Date.between(from: '2010-01-01', to: Date.today),
     color: CAT_COLORS.sample,
     sex: CAT_SEXES.sample,
     description: [Faker::Adjective.positive, Faker::Adjective.negative].sample(rand(2..5)).join(", ")

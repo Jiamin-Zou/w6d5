@@ -30,6 +30,6 @@ class Cat < ApplicationRecord
     end
 
     def age
-      time_ago_in_words(birth_date)
+      time_ago_in_words(birth_date).capitalize + " old"
     end
 end
